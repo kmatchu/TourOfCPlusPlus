@@ -137,7 +137,35 @@ Constants
 - immutability has design benefits
 - compile time evaluation can be good for performance
 
+Arrays
+- size of an array must be a constexpr
 
+Pointers
+- * prefix means "contents of"
+  - eg `char* p = &v[3];` means p points to the 4th element of v (so p is an address)
+- & prefix means "address of"
+  - eg `char x = *p;` means *p is the object p points to
+
+For loops syntax
+- eg `for (auto i=0; i!=10; ++i)`
+- Range-for-statement
+  - eg `for (auto x : v)`
+  - like pythons for item in list
+  
+
+Self-notes
+- it is called Random Access Memory because you can access memory spots in O(1) directly whenever
+  - eg (in machine code): 
+  ```
+  assembly
+  mov eax, [0x7ffee2d8a4b0]   ; Load x
+  add eax, 7                  ; Add 7
+  mov [0x7ffee2d8a4b0], eax    ; Store back
+  ```
+- Pre-increment vs post-increment
+  - `int x = 5; int a = ++x; // a = 6, x = 6`
+  - `int x = 5; int a = x++; // a = 5, x = 6`
+  - in loops, ++i is better because i++ creates a copy before incrementing (usually ignored by compiler but still)
 
 
 
