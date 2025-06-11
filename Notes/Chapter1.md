@@ -210,7 +210,7 @@ Self-notes
       - ASCII of character zero is 48
       - ASCII of null terminator is 0
   - could do *p != 87 to stop when finding a "W" character (decimal ASCII value of W)
-  - could do *p != 0x57 to stop when finding a "W" character (hex ASCII value of W)
+  - could do *p != 0x57 to stop when finding a "W" character (hex ASCII value of W) 
 
 REVIEW
 - The type of a function consists of the return type and the argument types. For class member functions, the name of the class is also part of the function type.
