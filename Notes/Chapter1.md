@@ -150,8 +150,37 @@ For loops syntax
 - eg `for (auto i=0; i!=10; ++i)`
 - Range-for-statement
   - eg `for (auto x : v)`
-  - like pythons for item in list
-  
+  - like python's `for item in list`
+
+References (vs pointers)
+- &
+  - don't need * to access the value
+  - cannot be reassigned to a new object
+- used in function parameter defintions, to ensure the actual object is passed not a copy of it
+  - even if argument is not modified can be useful to increase efficiency (no copying)
+    - in these cases use const, eg `void function(const double&)`
+
+Declarator Operators
+- &, *, []
+  - `T a[n];  // T[n]: array of n Ts`
+  - `T* p;    // T*: pointer to T`
+  - `T& r;    // T&: reference to T`
+  - `T f(a);  // T(A): function with argument type A and result of type T`
+
+C-Style Strings
+- zero-terminated array of chars
+
+Nullptr
+- shared by all ptr types (types with a *)
+  - a nonpointer type object cannot be nullptr (`int x = nullptr // ERROR`)
+- older code might use 0 or NULL instead of nullptr
+
+ String vs Character literal
+ - "" is string, '' is character
+
+ Switch
+ - each case must be a constant expression
+ - jumps to the case that matches, then does all actions downward until hitting a break
 
 Self-notes
 - it is called Random Access Memory because you can access memory spots in O(1) directly whenever
@@ -166,9 +195,22 @@ Self-notes
   - `int x = 5; int a = ++x; // a = 6, x = 6`
   - `int x = 5; int a = x++; // a = 5, x = 6`
   - in loops, ++i is better because i++ creates a copy before incrementing (usually ignored by compiler but still)
+  - [video](https://www.youtube.com/watch?v=bONciSOJ_N4)
 
+- Pointers explanation -- easy incrementing
+  - int var = 7
+  - int* ptr = &var
+    - now if you do ptr+1, it increments 4 bytes (because int* type)
+    - *ptr == var
+    - *&var == var
 
-
+- Looping through C strings
+  - check if *p != 0
+    - this is not checking for the character zero, but the ASCII value
+      - ASCII of character zero is 48
+      - ASCII of null terminator is 0
+  - could do *p != 87 to stop when finding a "W" character (decimal ASCII value of W)
+  - could do *p != 0x57 to stop when finding a "W" character (hex ASCII value of W)
 
 REVIEW
 - The type of a function consists of the return type and the argument types. For class member functions, the name of the class is also part of the function type.
